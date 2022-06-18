@@ -1,16 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const pages = ["index"];
+const pages = ["index", "sam"];
 
 module.exports = {
   mode: "development",
   entry: pages.reduce((config, page) => {
-    //  config[page] = `./src/index.js`;
     config[page] = `./src/components/${page}.js`;
     return config;
   }, {}),
   output: {
-    filename: "[name][contenthash].js",
+    // filename: "[name][contenthash].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
     assetModuleFilename: "[name][ext]",
